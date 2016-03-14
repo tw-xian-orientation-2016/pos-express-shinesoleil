@@ -11,7 +11,7 @@ exports.index = function (req, res) {
 
 exports.create = function (req, res) {
   var cartStr = req.body.cart;
-  
+
   cart.remove(function (err) {
     var newcart = new cart({cart: cartStr});
     newcart.save(function (err) {
