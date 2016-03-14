@@ -17,10 +17,7 @@ router.get('/receipts', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.post('/items', function(req, res, next) {
-  console.log(req.body);
-  res.render('index', { title: 'Express' });
-});
+router.post('/items', itemController.create);
 
 router.post('/cart', function(req, res, next) {
   res.render('index', { title: 'Express' });
