@@ -2,29 +2,12 @@ var express = require('express');
 var mongoose = require('mongoose');
 var router = express.Router();
 
+var itemController = require('../api/items/controller');
+
 mongoose.connect('mongodb://localhost/pos');
 
-var itemSchema = mongoose.Schema({
-  id: String,
-  name: String,
-  unit: String,
-  price: Number
-});
-
-var item = mongoose.model('item', itemSchema);
-
-var newItem = new item({id: '0'});
-
-newItem.save(function (err) {
-  if (err) {
-    return console.error(err);
-  }
-});
-
 /* GET home page. */
-router.get('/items', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+router.get('/items', itemController.index);
 
 router.get('/cart', function(req, res, next) {
   res.render('index', { title: 'Express' });
@@ -35,6 +18,7 @@ router.get('/receipts', function(req, res, next) {
 });
 
 router.post('/items', function(req, res, next) {
+  console.log(req.body);
   res.render('index', { title: 'Express' });
 });
 
