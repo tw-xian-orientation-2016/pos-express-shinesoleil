@@ -1,3 +1,10 @@
-/**
- * Created by hao on 3/14/16.
- */
+var mongoose = require('mongoose');
+
+var cartSchema = mongoose.Schema({
+  cart: String
+});
+
+
+var cart = mongoose.model('cart', cartSchema);
+
+module.exports = cart;
