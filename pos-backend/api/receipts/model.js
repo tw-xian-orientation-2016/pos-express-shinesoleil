@@ -1,3 +1,10 @@
-/**
- * Created by hao on 3/14/16.
- */
+var mongoose = require('mongoose');
+
+var receiptsSchema = mongoose.Schema({
+  receipts: String
+});
+
+
+var receipts = mongoose.model('receipts', receiptsSchema);
+
+module.exports = receipts;

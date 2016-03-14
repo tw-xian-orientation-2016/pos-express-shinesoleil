@@ -2,26 +2,23 @@ var express = require('express');
 var mongoose = require('mongoose');
 var router = express.Router();
 
-var itemController = require('../api/items/controller');
+var itemsController = require('../api/items/controller');
 var cartController = require('../api/cart/controller');
+var receiptsController = require('../api/receipts/controller');
 
 mongoose.connect('mongodb://localhost/pos');
 
 /* GET home page. */
-router.get('/items', itemController.index);
+router.get('/items', itemsController.index);
 
 router.get('/cart', cartController.index);
 
-router.get('/receipts', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+router.get('/receipts', receiptsController.index);
 
-router.post('/items', itemController.create);
+router.post('/items', itemsController.create);
 
 router.post('/cart', cartController.create);
 
-router.post('/receipts', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+router.post('/receipts', receiptsController.create);
 
 module.exports = router;
