@@ -22,6 +22,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(express.static(path.join(__dirname, 'public/pos-web/pos-web/main')));
+
+//app.use(express.static(path.join(__dirname, '../pos-web/pos-web')));
+
 app.use('/', routes);
 app.use('/users', users);
 

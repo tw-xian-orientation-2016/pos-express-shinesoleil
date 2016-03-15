@@ -9,6 +9,12 @@ var receiptsController = require('../api/receipts/controller');
 mongoose.connect('mongodb://localhost/pos');
 
 /* GET home page. */
+router.get('/', function (req, res) {
+  res.sendfile('public/pos-web/pos-web/main/html/itemList.html');
+});
+
+router.post('/init', itemsController.init);
+
 router.get('/items', itemsController.index);
 
 router.get('/cart', cartController.index);
